@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/calc.png">
-    <Calc :title='message' v-on:result-event='appAction' />
-    <hr>
-    <div>
+    <div class='main'>
+      <Calc :title='message' v-on:result-event='appAction' />
       <table v-html='log'></table>
     </div>
   </div>
@@ -41,11 +40,12 @@ export default {
     appAction: function (exp, res) {
       this.result.unshift([exp, res])
       // console.log(this.result)
-      if (this.result.length > 10) {
+      if (this.result.length > 5) {
         this.result.pop()
       }
       let log = JSON.stringify(this.result)
       localStorage.setItem('log', log)
+      this.result = ''
     }
   }
 }
@@ -63,14 +63,19 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.main {
+  display: flex;
+  justify-content: space-between;
+}
 table {
   border-collapse: collapse;
+  margin: 36px 0 0 30px;
   width: 100%;
 }
 th,td {
   padding: 15px;
   border: 1px solid #ddd;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 th.head {
   background-color: #aaa;

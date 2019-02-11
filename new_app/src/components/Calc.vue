@@ -7,6 +7,7 @@
       <div><textarea v-model='fomula' cols='40' rows='5' placeholder='変数に値を代入し、最後の行で演算式を記述'></textarea></div>
       <div><button @click='doAction'>計算実行</button></div>
     </div>
+    <p class='cap'>※5件まで履歴結果を保存</p>
   </div>
 </template>
 
@@ -49,6 +50,7 @@ export default {
 h1 {
   font-size: 3rem;
   color: #ccc;
+  line-height: 1;
 }
 p span {
   font-weight: bold;
@@ -73,5 +75,9 @@ button {
 }
 button:hover {
   background-color: #aaa;
+}
+.cap {
+  font-size: 0.5rem;
+  color: #aaa;
 }
 </style>
