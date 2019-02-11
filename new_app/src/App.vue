@@ -19,7 +19,7 @@ export default {
   data: function () {
     return {
       message: 'CALCURATOR',
-      result: []
+      result: [["No Expression","No value"],["No Expression","No value"],["No Expression","No value"],["No Expression","No value"],["No Expression","No value"]]
     }
   },
   computed: {
@@ -45,7 +45,6 @@ export default {
       }
       let log = JSON.stringify(this.result)
       localStorage.setItem('log', log)
-      this.result = ''
     }
   }
 }
