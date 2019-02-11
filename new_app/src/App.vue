@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" src="./assets/calc.png">
     <Calc :title='message' v-on:result-event='appAction' />
     <hr>
     <div>
@@ -19,13 +19,13 @@ export default {
   },
   data: function () {
     return {
-      message: 'CALC',
+      message: 'CALCURATOR',
       result: []
     }
   },
   computed: {
     log: function () {
-      let table = '<tr><th class="head">Expression</th><th class="head">Value</th></tr>'
+      let table = '<tr><th class="head">式履歴</th><th class="head">結果履歴</th></tr>'
       for (let i in this.result) {
         table += '<tr><td>' + this.result[i][0] + '</td><th>' + this.result[i][1] + '</th></tr>'
       }
@@ -40,6 +40,7 @@ export default {
   methods: {
     appAction: function (exp, res) {
       this.result.unshift([exp, res])
+      // console.log(this.result)
       if (this.result.length > 10) {
         this.result.pop()
       }
