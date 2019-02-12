@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld 
+    <BasicCalc 
       :title="message"
       @result-event="doAction"/>
       <button @click="doPrompt">Popup</button>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BasicCalc from './components/BasicCalc.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    BasicCalc
   },
   data: function () {
     return {
